@@ -100,6 +100,7 @@ else:
         ("Heart Disease", "Diabetes", "Parkinson's"),
         horizontal=True   # makes it appear as buttons in a row (better for mobile)
     )
+    st.markdown("<br>", unsafe_allow_html=True)
 
     # --- HEART DISEASE ---
     if disease == "Heart Disease":
