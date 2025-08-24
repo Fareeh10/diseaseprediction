@@ -94,9 +94,10 @@ else:
         st.rerun()
 
     # Disease Selection
-    disease = st.sidebar.selectbox(
+    disease = st.radio(
         "Select Disease to Predict",
-        ("Heart Disease", "Diabetes", "Parkinson's")
+        ("Heart Disease", "Diabetes", "Parkinson's"),
+        horizontal=True   # makes it appear as buttons in a row (better for mobile)
     )
 
     # --- HEART DISEASE ---
