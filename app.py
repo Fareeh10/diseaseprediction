@@ -93,6 +93,7 @@ else:
         st.session_state.show_app = False
         st.rerun()
 
+    st.markdown("<br>", unsafe_allow_html=True)
     # Disease Selection
     disease = st.radio(
         "Select Disease to Predict",
