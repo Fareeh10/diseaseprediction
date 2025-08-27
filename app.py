@@ -135,16 +135,43 @@ else:
         if "6" in thal: thal_6 = 1
         if "7" in thal: thal_7 = 1
 
-        st.markdown("<br>", unsafe_allow_html=True)
-        if st.button("Predict Heart Disease"):
-            features = pd.DataFrame([[
-                age, sex, trestbps, chol, thalach, exang, oldpeak, ca,
-                cp_2, cp_3, cp_4,
-                restecg_1, restecg_2,
-                slope_2,
-                thal_6, thal_7
-            ]], columns=heartdisease_features)
+        st.markdown("<h3>Heart Disease Prediction</h3>", unsafe_allow_html=True)
 
+            col1, col2 = st.columns(2)
+            with col1:
+                age = st.number_input("Age", 1, 120, 50)
+            with col2:
+                sex = st.selectbox("Sex", ("Male", "Female"))
+            
+            col3, col4 = st.columns(2)
+            with col3:
+                trestbps = st.number_input("Resting Blood Pressure", 80, 200, 120)
+            with col4:
+                chol = st.number_input("Cholesterol", 100, 600, 200)
+            
+            col5, col6 = st.columns(2)
+            with col5:
+                thalach = st.number_input("Max Heart Rate", 60, 220, 150)
+            with col6:
+                exang = st.selectbox("Exercise Induced Angina", ("No", "Yes"))
+            
+            col7, col8 = st.columns(2)
+            with col7:
+                oldpeak = st.number_input("ST Depression (oldpeak)", 0.0, 10.0, 1.0)
+            with col8:
+                ca = st.number_input("Number of Major Vessels (0–3)", 0, 3, 0)
+            
+            col9, col10 = st.columns(2)
+            with col9:
+                cp = st.selectbox("Chest Pain Type", ("1: Typical", "2: Atypical", "3: Non-anginal", "4: Asymptomatic"))
+            with col10:
+                restecg = st.selectbox("Resting ECG", ("0: Normal", "1: ST-T Abnormality", "2: Left Ventricular Hypertrophy"))
+            
+            col11, col12 = st.columns(2)
+            with col11:
+                slope = st.selectbox("Slope of ST Segment", ("1: Upsloping", "2: Flat", "3: Downsloping"))
+            with col12:
+                thal = st.selectbox("Thalassemia", ("3: Normal", "6: Fixed Defect", "7: Reversible Defect"))
             prediction = heart_model.predict(features)
             result = "Positive (Heart Disease Risk)" if prediction[0] == 1 else "Negative (No Heart Disease Risk)"
             st.success(f"Prediction: {result}")
