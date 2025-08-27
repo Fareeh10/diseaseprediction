@@ -83,7 +83,7 @@ if not st.session_state.show_app:
 
     _, col2, _ = st.columns([1,1,1])
     with col2:
-        if st.button("🔍 Start Prediction", use_container_width=True):
+        if st.button("Start Prediction", use_container_width=True):
             st.session_state.show_app = True
             st.rerun()
 
