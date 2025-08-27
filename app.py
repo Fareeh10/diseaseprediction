@@ -145,9 +145,9 @@ else:
                 thal_6, thal_7
             ]], columns=heartdisease_features)
    
-        prediction = heart_model.predict(features)
-        result = "Positive (Heart Disease Risk)" if prediction[0] == 1 else "Negative (No Heart Disease Risk)"
-        st.success(f"Prediction: {result}")
+            prediction = heart_model.predict(features)
+            result = "Positive (Heart Disease Risk)" if prediction[0] == 1 else "Negative (No Heart Disease Risk)"
+            st.success(f"Prediction: {result}")
 
     # --- DIABETES ---
     elif disease == "Diabetes":
