@@ -136,16 +136,14 @@ else:
         if "7" in thal: thal_7 = 1
 
         st.markdown("<br>", unsafe_allow_html=True)
-        if st.button("Predict Diabetes"):
-            pregnancies_t = np.log1p(pregnancies)
-            bp_t = np.log1p(bp)
-            skin_t = np.log1p(skin)
-            insulin_t = np.log1p(insulin)
-            bmi_t = np.log1p(bmi)
-            dpf_t = np.log1p(dpf)
-            age_t = np.log1p(age)
-
-        features = np.array([[pregnancies_t, glucose, bp_t, skin_t,insulin_t, bmi_t, dpf_t, age_t]])
+        if st.button("Predict Heart Disease"):
+            features = pd.DataFrame([[
+                age, sex, trestbps, chol, thalach, exang, oldpeak, ca,
+                cp_2, cp_3, cp_4,
+                restecg_1, restecg_2,
+                slope_2,
+                thal_6, thal_7
+            ]], columns=heartdisease_features)
    
         prediction = heart_model.predict(features)
         result = "Positive (Heart Disease Risk)" if prediction[0] == 1 else "Negative (No Heart Disease Risk)"
