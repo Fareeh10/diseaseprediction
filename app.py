@@ -106,19 +106,43 @@ else:
     if disease == "Heart Disease":
         st.markdown("<h3>Heart Disease Prediction</h3>", unsafe_allow_html=True)
 
-        age = st.number_input("Age", 1, 120, 50)
-        sex = st.selectbox("Sex", ("Male", "Female"))
-        trestbps = st.number_input("Resting Blood Pressure", 80, 200, 120)
-        chol = st.number_input("Cholesterol", 100, 600, 200)
-        thalach = st.number_input("Max Heart Rate", 60, 220, 150)
-        exang = st.selectbox("Exercise Induced Angina", ("No", "Yes"))
-        oldpeak = st.number_input("ST Depression (oldpeak)", 0.0, 10.0, 1.0)
-        ca = st.number_input("Number of Major Vessels (0–3)", 0, 3, 0)
+        with st.container():
+            col1, col2 = st.columns(2)
+            with col1:
+                age = st.number_input("Age", 1, 120, 50)
+            with col2:
+                sex = st.selectbox("Sex", ("Male", "Female"))
+            
+            col1, col2 = st.columns(2)
+            with col1:
+                trestbps = st.number_input("Resting Blood Pressure", 80, 200, 120)
+            with col2:    
+                chol = st.number_input("Cholesterol", 100, 600, 200)
+            
+            col1, col2 = st.columns(2)
+            with col1:
+                thalach = st.number_input("Max Heart Rate", 60, 220, 150)
+            with col2:
+                exang = st.selectbox("Exercise Induced Angina", ("No", "Yes"))
+            
+            col1, col2 = st.columns(2)
+            with col1:
+                oldpeak = st.number_input("ST Depression (oldpeak)", 0.0, 10.0, 1.0)
+            with col2:
+                ca = st.number_input("Number of Major Vessels (0–3)", 0, 3, 0)
 
-        cp = st.selectbox("Chest Pain Type", ("1: Typical", "2: Atypical", "3: Non-anginal", "4: Asymptomatic"))
-        restecg = st.selectbox("Resting ECG", ("0: Normal", "1: ST-T Abnormality", "2: Left Ventricular Hypertrophy"))
-        slope = st.selectbox("Slope of ST Segment", ("1: Upsloping", "2: Flat", "3: Downsloping"))
-        thal = st.selectbox("Thalassemia", ("3: Normal", "6: Fixed Defect", "7: Reversible Defect"))
+            col1, col2 = st.columns(2)
+            with col1:
+                cp = st.selectbox("Chest Pain Type", ("1: Typical", "2: Atypical", "3: Non-anginal", "4: Asymptomatic"))
+            
+            with col2:
+                restecg = st.selectbox("Resting ECG", ("0: Normal", "1: ST-T Abnormality", "2: Left Ventricular Hypertrophy"))
+            
+            col1, col2 = st.columns(2)
+            with col1:
+                slope = st.selectbox("Slope of ST Segment", ("1: Upsloping", "2: Flat", "3: Downsloping"))
+            with col2:
+                thal = st.selectbox("Thalassemia", ("3: Normal", "6: Fixed Defect", "7: Reversible Defect"))
 
         # Encoding
         sex = 1 if sex == "Male" else 0
@@ -153,14 +177,31 @@ else:
     elif disease == "Diabetes":
         st.markdown("<h3>Diabetes Prediction</h3>", unsafe_allow_html=True)
 
-        pregnancies = st.number_input("Pregnancies", 0, 20, 1)
-        glucose = st.number_input("Glucose Level", 0, 300, 120)
-        bp = st.number_input("Blood Pressure", 0, 200, 80)
-        skin = st.number_input("Skin Thickness", 0, 100, 20)
-        insulin = st.number_input("Insulin Level", 0, 1000, 80)
-        bmi = st.number_input("BMI", 0.0, 70.0, 25.0)
-        dpf = st.number_input("Diabetes Pedigree Function", 0.0, 5.0, 0.5)
-        age = st.number_input("Age", 1, 120, 30)
+        with st.container():
+            
+            col1, col2 = st.columns(2)
+            with col1:
+                pregnancies = st.number_input("Pregnancies", 0, 20, 1)
+            with col2:
+                glucose = st.number_input("Glucose Level", 0, 300, 120)
+
+            col1, col2 = st.columns(2)
+            with col1:
+                bp = st.number_input("Blood Pressure", 0, 200, 80)
+            with col2:
+                skin = st.number_input("Skin Thickness", 0, 100, 20)
+
+            col1, col2 = st.columns(2)
+            with col1:
+                insulin = st.number_input("Insulin Level", 0, 1000, 80)
+            with col2:
+                bmi = st.number_input("BMI", 0.0, 70.0, 25.0)
+
+            col1, col2 = st.columns(2)
+            with col1:
+                dpf = st.number_input("Diabetes Pedigree Function", 0.0, 5.0, 0.5)
+            with col2:
+                age = st.number_input("Age", 1, 120, 30)
 
         st.markdown("<br>", unsafe_allow_html=True)
         if st.button("Predict Diabetes"):
@@ -183,16 +224,37 @@ else:
     elif disease == "Parkinson's":
         st.markdown("<h3>Parkinson's Prediction</h3>", unsafe_allow_html=True)
 
-        fo = st.number_input("MDVP:Fo(Hz)", 0.0, 500.0, 150.0)
-        fhi = st.number_input("MDVP:Fhi(Hz)", 0.0, 500.0, 200.0)
-        flo = st.number_input("MDVP:Flo(Hz)", 0.0, 500.0, 100.0)
-        jitter = st.number_input("MDVP:Jitter(%)", 0.0, 1.0, 0.01)
-        shimmer = st.number_input("MDVP:Shimmer", 0.0, 1.0, 0.01)
-        rpde = st.number_input("RPDE", 0.0, 2.0, 0.5)
-        dfa = st.number_input("DFA", 0.0, 2.0, 0.5)
-        spread1 = st.number_input("Spread1", -10.0, 10.0, -4.0)
-        spread2 = st.number_input("Spread2", 0.0, 10.0, 3.0)
-        d2 = st.number_input("D2", 0.0, 5.0, 2.0)
+        with st.container():
+            
+            col1, col2 = st.columns(2)
+            with col1:
+                fo = st.number_input("MDVP:Fo(Hz)", 0.0, 500.0, 150.0)
+            with col2:    
+                fhi = st.number_input("MDVP:Fhi(Hz)", 0.0, 500.0, 200.0)
+
+            col1, col2 = st.columns(2)
+            with col1:    
+                flo = st.number_input("MDVP:Flo(Hz)", 0.0, 500.0, 100.0)
+            with col2:   
+                jitter = st.number_input("MDVP:Jitter(%)", 0.0, 1.0, 0.01)
+
+            col1, col2 = st.columns(2)
+            with col1:    
+                shimmer = st.number_input("MDVP:Shimmer", 0.0, 1.0, 0.01)
+            with col2:   
+                rpde = st.number_input("RPDE", 0.0, 2.0, 0.5)
+
+            col1, col2 = st.columns(2)
+            with col1:    
+                dfa = st.number_input("DFA", 0.0, 2.0, 0.5)
+            with col2:   
+                spread1 = st.number_input("Spread1", -10.0, 10.0, -4.0)
+
+            col1, col2 = st.columns(2)
+            with col1:    
+                spread2 = st.number_input("Spread2", 0.0, 10.0, 3.0)
+            with col2:   
+                d2 = st.number_input("D2", 0.0, 5.0, 2.0)
 
         st.markdown("<br>", unsafe_allow_html=True)
         if st.button("Predict Parkinson's"):
