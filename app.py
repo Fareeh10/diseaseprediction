@@ -36,7 +36,7 @@ st.markdown("""
         display: flex; flex-direction: column; align-items: center; justify-content: center;
         text-align: center; padding-top: 12%;
     }
-    .headline { font-size: 2.8rem;line-height: 3.8rem;font-weight: 700;color: #FF4B4B; margin-bottom: 2rem; }
+    .headline { font-size: 2.8rem;line-height: 3.8rem;font-weight: 700;color: #FF4B4B; margin-bottom: 1.5rem; }
     .subheadline { font-size: 1.2rem; color: #fff; margin-bottom: 1.5rem; max-width: 600px; }
     
     .stButton>button {
